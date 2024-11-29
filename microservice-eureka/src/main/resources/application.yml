@@ -1,0 +1,6 @@
+# La identacion es de 2 espacios en blanco
+spring:
+  application:
+    name: microservice-eureka
+  config:
+    import: optional:configserver:http://localhost:8888 # Esta configuracion de URL es temporal, hasta que configuremos el Microservicio de Config Server

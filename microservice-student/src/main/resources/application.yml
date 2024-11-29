@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: microservice-student
+  config:
+    import: optional:configserver:http://localhost:8888 # Esta configuracion de URL es temporal, hasta que configuremos el Microservice de Config Server

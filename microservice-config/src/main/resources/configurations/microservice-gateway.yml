@@ -1,0 +1,26 @@
+# No es necesario que microservice-gateway se registre en el servidor de eureka
+eureka:
+  client:
+    register-with-eureka: false
+# Puerto para el microservice-gateway
+server:
+  port: 8080
+
+spring:
+  application:
+    name: microservice-gateway
+  # Habilitamos el gateway para que microservice-gateway este pendiente y redireccione a los diferentes microservices
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: students
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/student/**
+        - id: courses
+          uri: http://localhost:9090
+          predicates:
+            - Path=/api/course/**
